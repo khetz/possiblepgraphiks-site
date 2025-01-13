@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from "../../shared/menu/menu.component";
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +9,7 @@ import { MenuComponent } from "../../shared/menu/menu.component";
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  ngOnInit() {
+    AOS.init();
+  }
 }
