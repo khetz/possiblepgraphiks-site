@@ -2,5 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('/fonts/segoeuithis.ttf') format('ttf')
+}
+
+@font-face {
+    font-family: 'Baskerville Old Face';
+    src: url('/fonts/baskerville-old-face.ttf')
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; }

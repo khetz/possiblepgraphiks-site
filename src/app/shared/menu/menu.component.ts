@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+
+  menuStates: Record<string, boolean> = {
+    'home': false,
+    'about': false,
+    'services': false,
+    'gallery': false,
+    'contact': false
+  }
+
+  setActiveMenuItem(menuItem: string): void {
+    Object.keys(this.menuStates).forEach((key) => (this.menuStates[key] = false));
+    this.menuStates[menuItem] = true;
+  }
 
 }
