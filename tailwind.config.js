@@ -15,6 +15,9 @@ module.exports = {
       },
       animation: {
         zoom: 'zoom 5s ease-in-out'
+      },
+      colors: {
+        primary_gray: ['#6F6F6F']
       }
     },
   },
