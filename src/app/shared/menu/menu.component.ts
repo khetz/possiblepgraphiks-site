@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 export class MenuComponent {
 
   menuStates: Record<string, boolean> = {
-    'home': false,
+    'home': true,
     'about': false,
     'services': false,
     'gallery': false,
