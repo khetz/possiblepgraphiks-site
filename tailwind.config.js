@@ -17,7 +17,8 @@ module.exports = {
         zoom: 'zoom 5s ease-in-out'
       },
       colors: {
-        primary_gray: ['#6F6F6F']
+        primary_gray: ['#6F6F6F'],
+        site_brown: ['#765139']
       }
     },
   },
