@@ -13,5 +13,5 @@
     src: url('/fonts/baskerville-old-face.ttf')
 }
 
-html, body { height: 100%; }
+html, body { height: 100%; overflow-x: hidden; }
 body { margin: 0; font-family: 'Baskerville Old Face'; }

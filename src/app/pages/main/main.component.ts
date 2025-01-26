@@ -12,5 +12,12 @@ import { ContactComponent } from '../../sections/contact/contact.component';
   styleUrl: './main.component.css'
 })
 export class MainComponent {
+  
+  scrollToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
 
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth'})
+    }
+  }
 }

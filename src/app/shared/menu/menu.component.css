@@ -1,3 +1,26 @@
 .active {
     border: 1px solid white;
 }
+
+.mat-icon {
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+}
+
+.fixed {
+    /* Ensures the menu covers the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .translate-x-full {
+    transform: translateX(100%);
+  }
+  
+  .translate-x-0 {
+    transform: translateX(0);
+  }
+  

@@ -1,7 +1,39 @@
-<ul class="flex gap-x-5 text-white p-5 font-segoe">
-    <li><a href="#" [ngClass]="{'active': menuStates['home']}" class="cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('home')">HOME</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['about']}" class="cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('about')">ABOUT</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['services']}" class="cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('services')">SERVICES</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['gallery']}" class="cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('gallery')">GALLERY</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['contact']}" class="cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('contact')">CONTACT</a></li>
+<ul class="max-md:hidden flex gap-x-5 text-white p-5 font-segoe">
+    <li><a href="#" [ngClass]="{'active': menuStates['home']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('home')">HOME</a></li>
+    <li><a href="#" [ngClass]="{'active': menuStates['about']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('about')">ABOUT</a></li>
+    <li><a href="#" [ngClass]="{'active': menuStates['services']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('services')">SERVICES</a></li>
+    <li><a href="#" [ngClass]="{'active': menuStates['gallery']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('gallery')">GALLERY</a></li>
+    <li><a href="#" [ngClass]="{'active': menuStates['contact']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('contact')">CONTACT</a></li>
 </ul>
+
+<div class="relative md:hidden flex justify-between items-center p-8">
+    <div class="flex justify-center items-center border border-transparent hover:border hover:border-white" (click)="toggleMenu()">
+        <mat-icon class="text-white box-content">menu</mat-icon>
+    </div>
+    <div class="flex-grow"></div>
+    <img src="/images/PG-logo-white.png" class="scale-50 absolute left-1/2 transform -translate-x-1/2"/>
+</div>
+
+@if (isMenuOpen) {
+    <div 
+        class="inset-0 fixed z-50 bg-white text-primary_gray-0 w-full max-w-full transform transition-transform duration-300 ease-in-out" 
+        [class.translate-x-0]="isMenuOpen"
+        [class.translate-x-full]="!isMenuOpen"
+    >
+
+    <button 
+        class= "p-8"
+        (click)="toggleMenu()"
+    >
+        <mat-icon>close</mat-icon>
+    </button>
+    <nav class="flex flex-col w-full max-w-full items-center h-full text-[60px] space-y-4">
+        <a (click)="sendMenuClickToHome('home')">home</a>
+        <a (click)="sendMenuClickToHome('about')">about</a>
+        <a (click)="sendMenuClickToHome('services')">services</a>
+        <a (click)="sendMenuClickToHome('gallery')">gallery</a>
+        <a (click)="sendMenuClickToHome('contact')">contact</a>
+    </nav>
+
+    </div>
+}

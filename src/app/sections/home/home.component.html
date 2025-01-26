@@ -1,16 +1,14 @@
-<div id="home" class="fullscreen-background h-screen bg-[url('/images/model.jpeg')] bg-cover bg-[50%_10%] bg-no-repeat bg-fixed" data-aos="fade-up">
-   <div class="navbar flex place-content-end">
-        <app-menu class="mt-2.5 mr-5"></app-menu>
-   </div>
-   <div class="home-heading-container flex h-full">
-      <div class="logo-heading-col flex flex-col ml-16 mt-16">
-         <div class="logo"><img src="/images/PG-logo-white.png"/></div>
-         <div class="lets ml-4 mt-10">
-            <h1 class="text-white font-baskerville text-6xl">
+<div id="home" class="fullscreen-background max-w-full h-screen bg-[url('/images/model.jpeg')] bg-[position:40%_5%] bg-no-repeat  bg-size-[200%]">
+   <app-menu (scrollToSection)="sendMenuClickToMainComponent($event)" class="md:mt-2.5 md:mr-5"></app-menu>
+   <div class="home-heading-container flex h-full ml-10">
+      <div class="logo-heading-col flex flex-col md:ml-16 md:mt-16 mt-5">
+         <div class="max-md:hidden logo"><img src="/images/PG-logo-white.png"/></div>
+         <div class="lets ml-0 md:ml-4 md:mt-10">
+            <h1 class="text-white font-baskerville text-[60px]">
                Let's
             </h1>
          </div>
-         <div class="create-row ml-4 flex items-end space-x-2 mt-2">
+         <div class="create-row md:ml-4 flex items-end space-x-2 md:mt-2">
             <div class="create-text">
                <h1 class="text-white font-baskerville text-6xl">
                   Create

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MenuComponent } from "../../shared/menu/menu.component";
 import * as AOS from 'aos';
 
@@ -9,7 +9,13 @@ import * as AOS from 'aos';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  @Output() scrollToSection: EventEmitter<string> = new EventEmitter();
+
   ngOnInit() {
     AOS.init();
+  }
+
+  sendMenuClickToMainComponent(sectionId: string) {
+    this.scrollToSection.emit(sectionId);
   }
 }
