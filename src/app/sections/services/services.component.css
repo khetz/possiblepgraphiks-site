@@ -1,0 +1,14 @@
+.mat-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+
+@media (min-width: 768px) {
+    .mat-icon {
+        font-size: 60px;
+        width: 60px;
+        height: 60px;
+    }
+}

@@ -1,9 +1,9 @@
-<ul class="max-md:hidden flex gap-x-5 text-white p-5 font-segoe">
-    <li><a href="#" [ngClass]="{'active': menuStates['home']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('home')">HOME</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['about']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('about')">ABOUT</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['services']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('services')">SERVICES</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['gallery']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('gallery')">GALLERY</a></li>
-    <li><a href="#" [ngClass]="{'active': menuStates['contact']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('contact')">CONTACT</a></li>
+<ul class="max-md:hidden flex justify-end gap-x-5 text-white p-5 font-segoe">
+    <li><a [ngClass]="{'active': menuStates['home']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('home')">HOME</a></li>
+    <li><a [ngClass]="{'active': menuStates['about']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('about')">ABOUT</a></li>
+    <li><a [ngClass]="{'active': menuStates['services']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('services')">SERVICES</a></li>
+    <li><a [ngClass]="{'active': menuStates['gallery']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('gallery')">GALLERY</a></li>
+    <li><a [ngClass]="{'active': menuStates['contact']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('contact')">CONTACT</a></li>
 </ul>
 
 <div class="relative md:hidden flex justify-between items-center p-8">
@@ -11,12 +11,12 @@
         <mat-icon class="text-white box-content">menu</mat-icon>
     </div>
     <div class="flex-grow"></div>
-    <img src="/images/PG-logo-white.png" class="scale-50 absolute left-1/2 transform -translate-x-1/2"/>
+    <img src="images/PG-logo-white.png" class="scale-50 absolute left-1/2 transform -translate-x-1/2"/>
 </div>
 
 @if (isMenuOpen) {
     <div 
-        class="inset-0 fixed z-50 bg-white text-primary_gray-0 w-full max-w-full transform transition-transform duration-300 ease-in-out" 
+        class="inset-0 fixed z-50 bg-white text-primary_gray-0 h-full w-full max-w-full" 
         [class.translate-x-0]="isMenuOpen"
         [class.translate-x-full]="!isMenuOpen"
     >
@@ -28,11 +28,11 @@
         <mat-icon>close</mat-icon>
     </button>
     <nav class="flex flex-col w-full max-w-full items-center h-full text-[60px] space-y-4">
-        <a (click)="sendMenuClickToHome('home')">home</a>
-        <a (click)="sendMenuClickToHome('about')">about</a>
-        <a (click)="sendMenuClickToHome('services')">services</a>
-        <a (click)="sendMenuClickToHome('gallery')">gallery</a>
-        <a (click)="sendMenuClickToHome('contact')">contact</a>
+        <a (click)="sendMenuClickToHome('home')" class="focus:text-black">home</a>
+        <a (click)="sendMenuClickToHome('about')" class="hover:text-black">about</a>
+        <a (click)="sendMenuClickToHome('services')" class="hover:text-black">services</a>
+        <a (click)="sendMenuClickToHome('gallery')" class="hover:text-black">gallery</a>
+        <a (click)="sendMenuClickToHome('contact')" class="hover:text-black">contact</a>
     </nav>
 
     </div>

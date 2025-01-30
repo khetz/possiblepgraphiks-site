@@ -24,6 +24,7 @@ export class MenuComponent {
   setActiveMenuItem(menuItem: string): void {
     Object.keys(this.menuStates).forEach((key) => (this.menuStates[key] = false));
     this.menuStates[menuItem] = true;
+    this.scrollToSection.emit(menuItem);
   }
 
   toggleMenu() {

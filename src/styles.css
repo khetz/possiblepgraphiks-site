@@ -3,15 +3,5 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('/fonts/segoeuithis.ttf') format('ttf')
-}
-
-@font-face {
-    font-family: 'Baskerville Old Face';
-    src: url('/fonts/baskerville-old-face.ttf')
-}
-
 html, body { height: 100%; overflow-x: hidden; }
 body { margin: 0; font-family: 'Baskerville Old Face'; }
