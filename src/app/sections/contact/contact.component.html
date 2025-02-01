@@ -6,18 +6,21 @@
         <div class="contact-form flex flex-col gap-10 text-xl">
             <div class="name flex flex-col gap-4">
                 <p>Name and surname</p>
-                <input type="text" name="name" class="rounded-3xl h-12 text-primary_gray-0 pl-6 md:w-3/4"/>
+                <input #name type="text" name="name" class="rounded-3xl h-12 text-primary_gray-0 pl-6 md:w-3/4"/>
+                @if(nameError) {<p class="text-red-500 text-sm">{{nameError}}</p>}
             </div>
             <div class="name flex flex-col gap-4">
                 <p>Email address</p>
-                <input type="text" name="email" class="rounded-3xl h-12 text-primary_gray-0 pl-6 md:w-3/4"/>
+                <input #userEmail type="text" name="email" class="rounded-3xl h-12 text-primary_gray-0 pl-6 md:w-3/4"/>
+                @if(emailError) {<p class="text-red-500 text-sm">{{emailError}}</p>}
             </div>
             <div class="name flex flex-col gap-4">
                 <p>Message</p>
-                <textarea name="message" class="rounded-3xl text-primary_gray-0 pl-6 md:w-3/4 h-24"></textarea>
+                <textarea #message name="message" class="rounded-3xl text-primary_gray-0 pl-6 md:w-3/4 h-24"></textarea>
+                @if(messageError) {<p class="text-red-500 text-sm">{{messageError}}</p>}
             </div>
             <div class="flex justify-center rounded-3xl send-email text-primary_gray-0 bg-white md:w-1/4 py-2 hover:ring-primary_gray-0 hover:ring-4 cursor-pointer">
-                <p class="text-sm">Send email</p>
+                <p class="text-sm" (click)="sendEmail()">Send email</p>
             </div>
         </div>
         <div class="address-section flex flex-col max-md:items-center justify-end  text-xl md:text-2xl gap-10 mt-10">

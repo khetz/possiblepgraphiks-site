@@ -1,5 +1,9 @@
 .active {
-    border: 1px solid white;
+  border: 1px solid white;
+}
+
+.gallery-active {
+  border: 1px solid #6F6F6F;
 }
 
 .mat-icon {

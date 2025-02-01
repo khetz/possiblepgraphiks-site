@@ -1,1 +1,43 @@
-<p>gallery-page works!</p>
+<app-menu></app-menu>
+<div class="container mx-auto p-4">
+    <div class="categories flex flex-wrap justify-center gap-2 mt-4-">
+        @for (category of categories; track $index) { 
+            <div 
+                class="flex justify-center p-2 border border-gray-300 cursor-pointer text-primary_gray-0 hover:text-black hover:border-gray-600"
+                [ngClass]="{'text-black border-gray-600': activeCategory[category]}"
+                (click)="setActiveCategory(category)"
+                >
+                <p>{{category}}</p>
+            </div>
+        }
+    </div>
+    <div class="image-section container mt-10 flex justify-center">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center">
+            <img
+                *ngFor="let image of images"
+                [src]="image"
+                alt="Gallery Image"
+                class="cursor-pointer rounded-xl shadow-md hover:shadow-xl transition"
+                (click)="openModal(image)"
+            />
+        </div>
+
+        @if (selectedImage) {
+            <div 
+                class="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center p-4"
+                (click)="closeModal()"
+            >
+
+                <div class="relative w-auto h-full">
+                    <button
+                        class="absolute top-2 left-2 text-white p-2 rounded-full"
+                        (click)="closeModal($event)"
+                    >
+                    <mat-icon>close</mat-icon>
+                    </button>
+                    <img [src]="selectedImage" alt="Enlarged Image" class="max-w-full max-h-full rounded-lg" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

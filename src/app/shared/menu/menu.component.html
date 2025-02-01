@@ -1,30 +1,34 @@
-<ul class="max-md:hidden flex justify-end gap-x-5 text-white p-5 font-segoe">
-    <li><a [ngClass]="{'active': menuStates['home']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('home')">HOME</a></li>
-    <li><a [ngClass]="{'active': menuStates['about']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('about')">ABOUT</a></li>
-    <li><a [ngClass]="{'active': menuStates['services']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('services')">SERVICES</a></li>
-    <li><a [ngClass]="{'active': menuStates['gallery']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('gallery')">GALLERY</a></li>
-    <li><a [ngClass]="{'active': menuStates['contact']}" class="border border-transparent cursor-pointer p-2 hover:border-white hover:border" (click)="setActiveMenuItem('contact')">CONTACT</a></li>
+<ul class="max-md:hidden flex justify-end gap-x-5 p-5 font-segoe">
+    @for (menuItem of menuItems; track $index) {
+    <li><a [ngClass]="[
+                isMainPage() && menuStates[menuItem] ? 'active' : '',
+                isMainPage() ? 'text-white hover:border-white' : 'text-primary_gray-0 hover:border-gray-600',
+                ]" class="border border-transparent cursor-pointer p-2 hover:border"
+            (click)="setActiveMenuItem(menuItem)">{{menuItem.toUpperCase()}}
+    </a>
+    </li>
+    }
 </ul>
 
 <div class="relative md:hidden flex justify-between items-center p-8">
-    <div class="flex justify-center items-center border border-transparent hover:border hover:border-white" (click)="toggleMenu()">
-        <mat-icon class="text-white box-content">menu</mat-icon>
+    <div class="flex justify-center items-center border border-transparent hover:border hover:border-white"
+        (click)="toggleMenu()">
+        <mat-icon class="box-content" [ngClass]="isMainPage() ? 'text-white' : 'text-primary_gray-0'">menu</mat-icon>
     </div>
     <div class="flex-grow"></div>
-    <img src="images/PG-logo-white.png" class="scale-50 absolute left-1/2 transform -translate-x-1/2"/>
+    @if (isMainPage()) {
+    <img src="images/PG-logo-white.png" class="scale-50 absolute left-1/2 transform -translate-x-1/2" />
+    }
+    @else {
+    <img src="images/logo-grey.jpg" class="scale-50 absolute left-1/2 transform -translate-x-1/2" />
+    }
 </div>
 
 @if (isMenuOpen) {
-    <div 
-        class="inset-0 fixed z-50 bg-white text-primary_gray-0 h-full w-full max-w-full" 
-        [class.translate-x-0]="isMenuOpen"
-        [class.translate-x-full]="!isMenuOpen"
-    >
+<div class="inset-0 fixed z-50 bg-white text-primary_gray-0 h-full w-full max-w-full" [class.translate-x-0]="isMenuOpen"
+    [class.translate-x-full]="!isMenuOpen">
 
-    <button 
-        class= "p-8"
-        (click)="toggleMenu()"
-    >
+    <button class="p-8" (click)="toggleMenu()">
         <mat-icon>close</mat-icon>
     </button>
     <nav class="flex flex-col w-full max-w-full items-center h-full text-[60px] space-y-4">
@@ -35,5 +39,5 @@
         <a (click)="sendMenuClickToHome('contact')" class="hover:text-black">contact</a>
     </nav>
 
-    </div>
+</div>
 }
